@@ -34,8 +34,8 @@ header{
     padding: 3em 0;
 }
 h1{
-    background-color: red;
-
+    background-color: black;
+    color: gold;
     font-size: 4rem;
 
 }
@@ -43,7 +43,7 @@ h1{
 
 
 .container{
-    background-color: aqua;
+    background-color: gray;
 
     display: grid;
     grid-template-columns: 3fr 1fr;
@@ -56,19 +56,7 @@ h1{
 
 
 
-.tickets_show{
-    color: brown;
-}
-.tickets{
-    color: brown;
-}
-.participants_input{
-    color: brown;
-}
 .participants_form
-
-
-
 input,
 button{
     font: inherit;
@@ -88,11 +76,11 @@ input[type="number"]{
     border-radius: 8px;
     cursor: pointer;
     font-size: 1.3rem;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 .btn:hover{
-    background-color: green;
-    color: white;
+    background-color: black;
+    color: gold;
 }
 
 
