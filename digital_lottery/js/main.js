@@ -1,3 +1,4 @@
+//alle ressurser
 const nameInput = document.querySelector("#name");
 const paid = document.querySelector("#paid");
 const btnAdd = document.querySelector("#add");
@@ -5,6 +6,7 @@ const participants = document.querySelector(".participants");
 const ticketPrice = document.querySelector("#ticketPrice");
 const numberWinners = document.querySelector("#numberWinners");
 const btnSaveSettings = document.querySelector("#save_settings");
+const showTickets = document.querySelector(".tickets");
 
 
 //globale variabler
@@ -97,24 +99,36 @@ function addName(e)
         }
 
         //skriv til minne antall lodd for hvert navn
-        localStorage.setItem("savedTickets", JSON.stringify(allTickets)) 
+        localStorage.setItem("savedTickets", JSON.stringify(allTickets));
     }
 
     nameInput.value = "";
     nameInput.focus();
 
     showParticipants();
-    showTickets();
+    makeTickets(allTickets);
     
-    console.log(allNames);
+    // console.log(allNames);
 }
 
 
 
 //tegn opp alle lodd
-function showTickets()
+function makeTickets(everyTicket)
 {
-    console.log("showTickets running");
+    console.log("makeTickets running");
+
+    //sjekk om det er lodd i minnet
+    if (localStorage.getItem("savedTickets") !== null)
+    {
+        console.log(everyTicket);
+        everyTicket.forEach(name => {
+            const newTicket = document.createElement("div");
+            newTicket.className = "ticket fresh";
+            newTicket.innerHTML = `<h2>${name}</h2>`;
+            showTickets.appendChild(newTicket);
+        })
+    }
 }
 
 
@@ -139,7 +153,8 @@ function showParticipants()
         savedNames = JSON.parse(localStorage.getItem("savedNames"));
     }
 
-    
+
+    //list opp navn med li
     savedNames.forEach((name) =>
     { 
         const li = document.createElement("li");
